@@ -16,7 +16,7 @@ public class DataSourceSwitchTest{
 	@Test
 	public void testServiceOk() throws Exception {
 		System.out.println("start");
-		testDao.readData();	
+		testDao.writeData();	
 		System.out.println("end");
 	}
 	

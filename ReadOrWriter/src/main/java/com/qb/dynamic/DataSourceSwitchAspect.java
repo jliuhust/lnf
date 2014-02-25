@@ -10,9 +10,25 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class DataSourceSwitchAspect {
 
-	public static final String READ_NAME = "rDataSource";
+	public   String readName = "rDataSource";
 	
-	public static final String WRITE_NAME = "wDataSource";
+	public   String writeName = "wDataSource";
+
+	public String getReadName() {
+		return readName;
+	}
+
+	public void setReadName(String readName) {
+		this.readName = readName;
+	}
+
+	public String getWriteName() {
+		return writeName;
+	}
+
+	public void setWriteName(String writeName) {
+		this.writeName = writeName;
+	}
 
 	@Pointcut("execution(* com..*Dao.*(..))")
 	public void switchDataSourcePointcut() {
@@ -30,8 +46,8 @@ public class DataSourceSwitchAspect {
 		if(lowerStr.startsWith("read")
 			||lowerStr.startsWith("select")
 			||lowerStr.startsWith("list"))
-			DBContextHolder.setDbType(READ_NAME);
+			DBContextHolder.setDbType(readName);
 		else
-			DBContextHolder.setDbType(WRITE_NAME);
+			DBContextHolder.setDbType(writeName);
 	}
 }

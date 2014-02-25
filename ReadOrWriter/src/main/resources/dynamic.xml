@@ -20,5 +20,8 @@
         <context:annotation-config/>
 		<context:component-scan base-package="com.qb.dynamic" />
 	    <aop:aspectj-autoproxy />
-	    <bean id="dataSourceSwitchAspect" class="com.qb.dynamic.DataSourceSwitchAspect" />
+	    <bean id="dataSourceSwitchAspect" class="com.qb.dynamic.DataSourceSwitchAspect">
+	           <property name="readName" value="${readName}"/>
+	           <property name="writeName" value="${writeName}"/>
+	    </bean>
 </beans>
